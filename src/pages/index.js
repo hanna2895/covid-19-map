@@ -9,7 +9,7 @@ import Map from 'components/Map';
 
 
 const LOCATION = {
-  lat: 0,
+  lat: 50,
   lng: 0
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
