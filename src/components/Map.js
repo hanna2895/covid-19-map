@@ -6,7 +6,7 @@ import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
 import { isDomAvailable } from 'lib/util';
 
 const Map = ( props ) => {
-  const { children, className, defaultBaseMap = 'OpenStreetMap', mapEffect, ...rest } = props;
+  const { children, className, defaultBaseMap = 'Mapbox', mapEffect, ...rest } = props;
 
   const mapRef = useRef();
 
@@ -18,7 +18,7 @@ const Map = ( props ) => {
   });
 
   const services = useMapServices({
-    names: ['OpenStreetMap']
+    names: [defaultBaseMap]
   });
   const basemap = services.find(( service ) => service.name === defaultBaseMap );
 

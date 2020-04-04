@@ -5,7 +5,6 @@ import axios from 'axios';
 
 
 import Layout from 'components/Layout';
-import Container from 'components/Container';
 import Map from 'components/Map';
 
 
@@ -38,7 +37,7 @@ const IndexPage = () => {
     const { data = [] } = response;
     const hasData = Array.isArray(data) && data.length > 0;
 
-    if (!hasData) return;
+    if (!map || !hasData) return;
 
     const geoJson = {
       type: 'FeatureCollection',
@@ -112,7 +111,7 @@ const IndexPage = () => {
 
   const mapSettings = {
     center: CENTER,
-    defaultBaseMap: 'OpenStreetMap',
+    defaultBaseMap: 'Mapbox',
     zoom: DEFAULT_ZOOM,
     mapEffect
   };
@@ -125,14 +124,6 @@ const IndexPage = () => {
 
       <Map {...mapSettings} />
 
-      <Container type="content" className="text-center home-start">
-        <h2>Still Getting Started?</h2>
-        <p>Run the following in your terminal!</p>
-        <pre>
-          <code>gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet</code>
-        </pre>
-        <p className="note">Note: Gatsby CLI required globally for the above command</p>
-      </Container>
     </Layout>
   );
 };
